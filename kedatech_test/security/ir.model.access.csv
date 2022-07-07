@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_material_material,access_material_material,model_material_material,,1,1,1,1
+access_client_client,access_client_client,model_client_client,groups_kedatech_client,1,1,0,0
+access_supplier_supplier,access_supplier_supplier_all,model_supplier_supplier,,1,1,1,1

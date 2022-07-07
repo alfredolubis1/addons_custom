@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="parent_menu_client" name="Administrator" sequence="1" groups="groups_kedatech_client"/>
+        <menuitem id="parent_menu_material" name="Material" sequence="2"  groups="groups_kedatech_client"/>
+        <menuitem id="parent_menu_supplier" name="Supplier" sequence="3"  groups="groups_kedatech_client"/>
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="groups_kedatech_client" model="res.groups">
+            <field name="name">Client</field>
+        </record>
+
+        <record id="groups_kedatech_admin" model="res.groups">
+            <field name="name">KeDa Tech Admin</field>
+        </record>
+    </data>
+</odoo>

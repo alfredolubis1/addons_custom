@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="Administrator" parent="parent_menu_client" sequence="1" id="client_submenu"/>
+
+        <record id="client_tree_view" model="ir.ui.view">
+            <field name="name">Client List</field>
+            <field name="model">client.client</field>
+            <field name="arch" type="xml">
+                <tree string="Client">
+                    <field name="name"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="client_form_view" model="ir.ui.view">
+            <field name="name">Client</field>
+            <field name="model">client.client</field>
+            <field name="arch" type="xml">
+                <form string="Client">
+                    <sheet>
+                        <group col="4" colspan="4" string="Client Info">
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="user_id" options="{'no_open': True, 'no_create': True}" groups="kedatech_test.groups_kedatech_admin"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="client_search_view" model="ir.ui.view">
+            <field name="name">Client</field>
+            <field name="model">client.client</field>
+            <field name="arch" type="xml">
+                <search string="Client">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_client_form" model="ir.actions.act_window">
+            <field name="name">Client</field>
+            <field name="res_model">client.client</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="client_search_view"/>
+            <field name="domain">[('user_id', '=', uid)]</field>
+        </record>
+
+        <record id="action_all_client_form" model="ir.actions.act_window">
+            <field name="name">Client</field>
+            <field name="res_model">client.client</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="client_search_view"/>
+        </record>
+
+        <menuitem name="My Profile" parent="client_submenu" sequence="1" action="action_client_form" id="client_my_profile_menu"/>
+        <menuitem name="All Client" parent="client_submenu" sequence="2" action="action_all_client_form" id="all_client_profile_menu" groups="kedatech_test.groups_kedatech_admin"/>
+    </data>
+</odoo>

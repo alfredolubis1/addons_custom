@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="Supplier" parent="parent_menu_supplier" sequence="1" id="supplier_submenu"/>
+
+        <record id="supplier_tree_view" model="ir.ui.view">
+            <field name="name">Supplier</field>
+            <field name="model">supplier.supplier</field>
+            <field name="arch" type="xml">
+                <tree string="Supplier">
+                    <field name="name"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="supplier_form_view" model="ir.ui.view">
+            <field name="name">Supplier</field>
+            <field name="model">supplier.supplier</field>
+            <field name="arch" type="xml">
+                <form string="Supplier">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="user_id" options="{'no_open': True, 'no_create': True}" groups="kedatech_test.groups_kedatech_admin"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="supplier_search_view" model="ir.ui.view">
+            <field name="name">Supplier</field>
+            <field name="model">supplier.supplier</field>
+            <field name="arch" type="xml">
+                <search string="Supplier">
+                    <field name="name"/>
+                    <field name="email"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_supplier_form" model="ir.actions.act_window">
+            <field name="name">Supplier</field>
+            <field name="res_model">supplier.supplier</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="supplier_search_view"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem name="All Supplier" parent="supplier_submenu" sequence="1" action="action_supplier_form" id="supplier_submenu_child"/>
+    </data>
+</odoo>
